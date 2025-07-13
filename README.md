@@ -2,4 +2,4 @@
 
 ## Architecture
 
-<img width="600" src="./architecture_image/arch.png">
+<img width="800" src="./architecture_image/arch.png">
