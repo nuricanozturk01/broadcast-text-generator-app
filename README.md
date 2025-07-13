@@ -1,4 +1,4 @@
-# LAN-random-generator-app
+# broadcast-text-generator-app
 
 ## Architecture
 
