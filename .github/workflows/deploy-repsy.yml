@@ -48,7 +48,7 @@ jobs:
       - name: Build and push generator-server
         uses: docker/build-push-action@v6.17.0
         with:
-          context: generator-server
+          context: text-generator
           push: true
           tags: repo.repsy.io/nuricanozturk/generator-server/generator-server:${{ env.DOCKER_IMAGE_TAG }},repo.repsy.io/nuricanozturk/generator-server/generator-server:latest
   text-request-server:
