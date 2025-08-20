@@ -1,22 +1,38 @@
 version: "3.9"
 
 services:
-  generator:
+  consumer-1:
     build: ./text-request-server
-    container_name: generator
-    command: ["172.18.0", "6000", "7000", "5"]
+    container_name: consumer-1
+    command: ["172.18.255", "6000", "7000", "5"]
     networks:
       broadcast-network:
         ipv4_address: 172.18.0.10
 
-  subscriber:
+  consumer-2:
+    build: ./text-request-server
+    container_name: consumer-2
+    command: ["172.18.255", "6000", "7001", "5"]
+    networks:
+      broadcast-network:
+        ipv4_address: 172.18.0.9
+
+  consumer-3:
+    build: ./text-request-server
+    container_name: consumer-3
+    command: ["172.18.255", "6000", "7002", "5"]
+    networks:
+      broadcast-network:
+        ipv4_address: 172.18.0.8
+
+  producer:
     build: ./text-generator
-    container_name: subscriber
-    command: ["7001", "5"]
+    container_name: producer
+    command: ["6000", "1024"]
     networks:
       broadcast-network:
         ipv4_address: 172.18.0.11
-
+        
 networks:
   broadcast-network:
     driver: bridge

@@ -5,7 +5,8 @@ USER text-generator-server
 
 LABEL org.opencontainers.image.description="text-generator"
 ADD target/text-generator-1.0.0-uber.jar backend.jar
-EXPOSE 7001/udp
 
+EXPOSE 7001/udp
+EXPOSE 6000/udp
 
 ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/backend.jar"]
