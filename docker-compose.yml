@@ -6,7 +6,7 @@ services:
     container_name: generator
     command: ["172.18.0", "6000", "7000", "5"]
     networks:
-      btg-net:
+      broadcast-network:
         ipv4_address: 172.18.0.10
 
   subscriber:
@@ -14,11 +14,11 @@ services:
     container_name: subscriber
     command: ["7001", "5"]
     networks:
-      btg-net:
+      broadcast-network:
         ipv4_address: 172.18.0.11
 
 networks:
-  btg-net:
+  broadcast-network:
     driver: bridge
     ipam:
       config:
