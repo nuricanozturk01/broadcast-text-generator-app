@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  generator:
+    build: ./text-request-server
+    container_name: generator
+    command: ["172.18.0", "6000", "7000", "5"]
+    networks:
+      btg-net:
+        ipv4_address: 172.18.0.10
+
+  subscriber:
+    build: ./text-generator
+    container_name: subscriber
+    command: ["7001", "5"]
+    networks:
+      btg-net:
+        ipv4_address: 172.18.0.11
+
+networks:
+  btg-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
